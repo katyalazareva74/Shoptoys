@@ -34,12 +34,11 @@ public class ShopToys implements Shop {
         String[] s1 = str.split(" ");
         int n = Integer.parseInt(s1[2]);
         int m = Integer.parseInt(s1[0]);
-        Toys a = new Toys(m, s1[1], n);
+        Toys toyprize = new Toys(m, s1[1], n);
         int count = 0;
         for (Toys toy : this.shop) {
             if ((s1[1].equals(toy.getName())) && (count == 0)) {
-                a.setId(toy.getId());
-                System.out.println(a);
+                toyprize.setId(toy.getId());
                 count++;
             } else {
                 queue1.add(toy);
@@ -48,7 +47,7 @@ public class ShopToys implements Shop {
         this.shop.clear();
         this.shop.addAll(queue1);
         System.out.println(this.shop);
-        return a;
+        return toyprize;
     }
 
     @Override
