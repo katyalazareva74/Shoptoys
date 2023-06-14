@@ -20,7 +20,6 @@ public class ToysIterator implements Iterator<Toys> {
 
     @Override
     public Toys next() {
-        //index++;
         return shop.poll();
     }
 }
