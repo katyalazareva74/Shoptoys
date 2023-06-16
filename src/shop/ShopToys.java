@@ -10,7 +10,7 @@ public class ShopToys implements Shop {
     private PriorityQueue<Toys> shop;
 
     public ShopToys() {
-        this(new PriorityQueue<>());
+        this.shop = new PriorityQueue<>();
     }
 
     public ShopToys(PriorityQueue<Toys> shop) {
@@ -26,7 +26,6 @@ public class ShopToys implements Shop {
             toy.setId(id++);
             shop.add(toy);
         }
-        System.out.println(this.shop);
     }
 
     public Toys getqueue(String str) {
@@ -46,7 +45,6 @@ public class ShopToys implements Shop {
         }
         this.shop.clear();
         this.shop.addAll(queue1);
-        System.out.println(this.shop);
         return toyprize;
     }
 
