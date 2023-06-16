@@ -43,7 +43,6 @@ public class ShopService implements Service {
             else
                 this.queue.addLast(str);
         }
-        System.out.println(this.queue);
     }
 
     public void getLott() {
@@ -81,15 +80,16 @@ public class ShopService implements Service {
         String[] s1 = str.split(" ");
         int percent = Integer.parseInt(s1[3]);
         percent = percent + k;
-        System.out.println(percent);
         return (percent == 100) ? 0 : percent;
     }
+
     public void savequeue() throws FileNotFoundException, IOException {
         svloadf.savefile(this.qu);
-    } 
+    }
+
     public void loadqueue() throws FileNotFoundException, ClassNotFoundException, IOException {
         Object loadtoy = new Object();
-        loadtoy=svloadf.loadfile();
+        loadtoy = svloadf.loadfile();
         System.out.println(loadtoy);
     }
 
