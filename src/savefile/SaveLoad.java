@@ -9,8 +9,6 @@ import java.io.ObjectOutputStream;
 
 public class SaveLoad implements OutInput {
 
-    private static final int Java = 0;
-
     @Override
     public void savefile(Object stoy) throws FileNotFoundException, IOException {
         try (ObjectOutputStream savetoys = new ObjectOutputStream(new FileOutputStream("Java/data.dat"))) {
@@ -27,5 +25,5 @@ public class SaveLoad implements OutInput {
         loadtoys.close();
         return ltoy;
     }
-    
+
 }
