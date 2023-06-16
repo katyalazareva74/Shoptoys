@@ -9,9 +9,11 @@ import java.io.ObjectOutputStream;
 
 public class SaveLoad implements OutInput {
 
+    private static final int Java = 0;
+
     @Override
     public void savefile(Object stoy) throws FileNotFoundException, IOException {
-        try (ObjectOutputStream savetoys = new ObjectOutputStream(new FileOutputStream("data.dat"))) {
+        try (ObjectOutputStream savetoys = new ObjectOutputStream(new FileOutputStream("Java/data.dat"))) {
             savetoys.writeObject(stoy);
             savetoys.close();
         }
@@ -19,7 +21,7 @@ public class SaveLoad implements OutInput {
 
     @Override
     public Object loadfile() throws FileNotFoundException, IOException, ClassNotFoundException {
-        ObjectInputStream loadtoys = new ObjectInputStream(new FileInputStream("data.dat"));
+        ObjectInputStream loadtoys = new ObjectInputStream(new FileInputStream("Java/data.dat"));
         Object ltoy = new Object();
         ltoy = loadtoys.readObject();
         loadtoys.close();
