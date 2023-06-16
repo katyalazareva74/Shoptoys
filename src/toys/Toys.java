@@ -40,14 +40,14 @@ public class Toys implements Serializable, Comparable<Toys> {
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append("\n");
-        str.append(this.id + ": ");
-        str.append(this.name + ": ");
-        str.append(this.fraq + ": ");
+        str.append("id -> " + this.id);
+        str.append("  название -> " + this.name);
+        str.append("  частота выпадения -> " + this.fraq);
         return str.toString();
     }
 
     @Override
     public int compareTo(Toys t) {
-        return (int) (t.getFraq() - this.getFraq());
+        return this.name.compareTo(t.getName());
     }
 }
