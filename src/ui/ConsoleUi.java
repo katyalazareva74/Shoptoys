@@ -24,9 +24,10 @@ public class ConsoleUi implements View {
         presenter.loadf();
         while (loop) {
             System.out.println("Введите игрушку по формату:"
-                    + "\nid игрушки, название игрушки, количество игрушек, процент выпадения игрушки(без знака %),"
+                    + "\nid игрушки, название игрушки, количество игрушек, процент выпадения игрушки,"
                     + "\nв одну строку через пробел:");
             str = scanner.nextLine();
+            str = str.replaceAll("%", "");
             if (number == 0)
                 number = presenter.tnumber(str);
             number = presenter.checks(str, number);
@@ -35,21 +36,18 @@ public class ConsoleUi implements View {
                 System.exit(0);
             }
             proc = presenter.checksp(str, proc);
-            System.out.println(proc);
             if (proc > 100) {
                 System.out.println("Что-то пошло не так! Попробуйте еще раз!");
                 System.exit(0);
             }
-            System.out.println(number);
             if ((number != 0) && (proc == 0)) {
                 loop = false;
             }
-            System.out.println(loop);
             presenter.addtoy(str);
             presenter.addstr(str);
         }
         while (!loop) {
-            System.out.println("Сколько игрушек участвует в лотерее?");
+            System.out.println("Сколько игрушек участвует в розыгрыше?");
             get = scanner.nextInt();
             if (get <= number)
                 loop = true;
@@ -60,6 +58,7 @@ public class ConsoleUi implements View {
         }
         presenter.showshop();
         presenter.savef();
+        System.out.println("\nДанные розыгрыша записаны в файл.");
     }
 
     @Override
